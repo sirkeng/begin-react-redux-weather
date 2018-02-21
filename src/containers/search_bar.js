@@ -3,23 +3,22 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/index';
 
-class SearchBar extends Component {
-	constructor(props) {
+class SearchBar extends Component{
+	constructor(props){
 		super(props);
 
 		this.state = { term: '' };
 
-		// this mean this function class SearchBar 
-		// call and replace value
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 
-	onInputChange(event) {
-		this.setState({ term: event.target.value})
+	onInputChange(event){
+		// console.log('onInputChange:', event.target.value);
+		this.setState({ term: event.target.value });
 	}
 
-	onFormSubmit(event) {
+	onFormSubmit(event){
 		event.preventDefault();
 
 		// We need to go and fetch weather data
@@ -27,9 +26,9 @@ class SearchBar extends Component {
 		this.setState({ term: '' });
 	}
 
-	render() {
+	render(){
 		return (
-			<form onSubmit={this.onFormSubmit} className="input-group">
+			<form onSubmit={this.onFormSubmit} className="input-group mt-2">
 				<input 
 					placeholder="Get a five-day forecast in your favorite cities"
 					className="form-control"
